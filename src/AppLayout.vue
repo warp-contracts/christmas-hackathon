@@ -8,7 +8,7 @@
             <h1>Mikołajkowy Hackathon</h1>
             <h2>Spraw sobie prezent na Mikołajki za 10.000 PLN!</h2>
             <div class="btn-wrapper">
-              <button class="header-btn">Weź udział</button>
+              <a href="#" class="header-btn">Weź udział</a>
               <div>
                 <p class="header-text">
                   Zacznij przygode z Web3 poznajac technologię smart kontraktów
@@ -57,6 +57,97 @@
           </li>
         </ul>
       </section>
+
+      <section id="instruction">
+        <h2>Jak wziąć udział?</h2>
+        <div class="timeline">
+          <div class="step">
+            <p class="title">Krok 1</p>
+            <p class="text">
+              Poznaj Web3 & Warp SDK poprzez
+              <a href="https://warp.cc" target="_blank">Warp Academy</a>
+            </p>
+            <span class="icon">👇</span>
+          </div>
+
+          <div class="step">
+            <p class="title">Krok 2</p>
+            <p class="text">
+              Wymyśl kreatywny pomysł zastosowania Warp SDK i zacznij budować
+            </p>
+            <span class="icon">👇</span>
+          </div>
+
+          <div class="step">
+            <p class="title">Krok 3</p>
+            <p class="text">Zarejestruj swój projekt przez Google Forms</p>
+            <a
+              href="https://docs.google.com/forms/d/e/1FAIpQLSfD57FcJ4qOLVZ4pDYp4RNGlm99-zxVeX88bLyDF7ze0VWOSA/viewform"
+              target="_blank"
+              class="register-btn"
+              >zarejestruj</a
+            >
+          </div>
+        </div>
+      </section>
+
+      <section id="examples">
+        <div class="accordion">
+          <h2>Przykładowe projekty</h2>
+          <div class="tabs">
+            <div class="tab">
+              <input type="checkbox" id="chck1" />
+              <label class="tab-label" for="chck1">DeFi</label>
+              <div class="tab-content">
+                <p><span>👉</span> Zdecentralizowana giełda (DEX)</p>
+                <p><span>👉</span> Zdecentralizowany protokół pożyczkowy</p>
+                <p>
+                  <span>👉</span> Zdecentralizowany Protokół monetyzacji danych
+                </p>
+              </div>
+            </div>
+            <div class="tab">
+              <input type="checkbox" id="chck2" />
+              <label class="tab-label" for="chck2">Social Apps</label>
+              <div class="tab-content">
+                <p>
+                  <span>👉</span> Social Media - np. Instagram oparty na
+                  technologii blockchain
+                </p>
+                <p>
+                  <span>👉</span> Social Networks - Narzędzia do budowy
+                  wirtualnych społeczności
+                </p>
+                <p>
+                  <span>👉</span> Protokół Zarządzający potwierdzeniem
+                  tożsamości w oparciu o technologię blockchain
+                </p>
+              </div>
+            </div>
+
+            <div class="tab">
+              <input type="checkbox" id="chck3" />
+              <label class="tab-label" for="chck3">Gaming</label>
+              <div class="tab-content">
+                <p>
+                  <span>👉</span> Trading card games: dodaj budowanie decku,
+                  wymianę kart oraz zapis wyników pojedynków na blockchainie
+                </p>
+                <p>
+                  <span>👉</span> RPGs: tokenizacja oraz możliwość wymiany/
+                  sprzedaży przedmiotów w grze
+                </p>
+                <p>
+                  <span>👉</span> MMO: Zdefiniuj mechanizm interakcji
+                  bezpośrednio w kontraktach Warp
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <footer></footer>
     </main>
   </div>
 </template>
@@ -76,6 +167,7 @@ export default {
 
 <style lang="scss" scoped>
 @import './styles/variables';
+@import './styles/mixins';
 
 main {
   margin-top: 9rem;
@@ -101,7 +193,11 @@ main {
     }
 
     .header-btn {
+      display: flex;
+      justify-content: center;
+      align-items: center;
       align-self: flex-end;
+      transition: all 0.3s;
 
       width: 70%;
       height: 5rem;
@@ -112,6 +208,7 @@ main {
       color: white;
       font-size: 1.6rem;
       font-weight: bold;
+      text-decoration: none;
     }
 
     .btn-wrapper {
@@ -181,16 +278,16 @@ main {
     justify-content: center;
     align-items: center;
 
-    padding: 0 2rem;
-    padding-top: 2rem;
+    padding: 2rem 2rem;
+    margin-top: 4rem;
 
     h2 {
-      font-size: 3rem;
-      color: $primary;
+      @include section-header;
     }
 
     ul {
       list-style: none;
+      margin-top: 2rem;
 
       li {
         display: flex;
@@ -209,6 +306,172 @@ main {
             font-weight: bold;
             color: $text-basic;
           }
+        }
+      }
+    }
+  }
+
+  #instruction {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+
+    padding: 4rem 2rem;
+    margin-top: 4rem;
+    background-color: $backgroundGrey;
+
+    h2 {
+      @include section-header;
+    }
+    .timeline,
+    .step {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      margin-top: 2rem;
+
+      .step {
+        .title {
+          font-size: 2rem;
+          font-weight: bold;
+          color: $text-basic;
+        }
+
+        .text {
+          text-align: center;
+          font-size: 1.4rem;
+
+          a {
+            font-size: 1.4rem;
+          }
+        }
+
+        .icon {
+          font-size: 3rem;
+          margin-top: 2rem;
+        }
+      }
+      .register-btn {
+        margin-top: 4rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 20rem;
+        height: 5rem;
+        background-color: $secondary;
+        color: white;
+        text-decoration: none;
+        border-radius: 1.5rem;
+        text-transform: uppercase;
+        font-size: 1.4rem;
+        font-weight: bold;
+      }
+    }
+  }
+
+  #examples {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    padding: 4rem 2rem;
+    margin-top: 4rem;
+    .accordion {
+      h2 {
+        @include section-header;
+        text-align: center;
+      }
+      input {
+        position: absolute;
+        opacity: 0;
+        z-index: -1;
+      }
+      // Layout
+      .row {
+        display: flex;
+        .col {
+          flex: 1;
+          &:last-child {
+            margin-left: 1em;
+          }
+        }
+      }
+
+      .tabs {
+        margin-top: 4rem;
+        border-radius: 0.8rem;
+        overflow: hidden;
+        box-shadow: 0 0.4rem 0.4rem -0.2rem rgba(0, 0, 0, 0.5);
+      }
+      .tab {
+        width: 100%;
+        color: white;
+        overflow: hidden;
+        &-label {
+          display: flex;
+          justify-content: space-between;
+          padding: 1rem;
+          background: $secondary;
+          font-weight: bold;
+          font-size: 2rem;
+          cursor: pointer;
+
+          &:hover {
+            background: $secondary;
+          }
+          &::after {
+            content: '\276F';
+            width: 1rem;
+            height: 1rem;
+            text-align: center;
+            transition: all 0.35s;
+          }
+        }
+        &-content {
+          max-height: 0;
+          padding: 0 1em;
+          background: white;
+          transition: all 0.35s;
+
+          p {
+            font-size: 1.4rem;
+            color: $text-basic;
+            padding: 1rem 0;
+            display: flex;
+            align-items: center;
+
+            span {
+              font-size: 2rem;
+              margin-right: 1rem;
+            }
+          }
+        }
+        &-close {
+          display: flex;
+          justify-content: flex-end;
+          padding: 1em;
+          font-size: 0.75em;
+          background: $secondary;
+          cursor: pointer;
+          &:hover {
+            background: $secondary;
+          }
+        }
+      }
+
+      // :checked
+      input:checked {
+        + .tab-label {
+          background: $secondary;
+          &::after {
+            transform: rotate(90deg);
+          }
+        }
+        ~ .tab-content {
+          max-height: 100vh;
+          padding: 1rem;
         }
       }
     }
@@ -263,8 +526,6 @@ main {
           width: auto;
         }
       }
-
-
     }
 
     #date {

@@ -82,6 +82,7 @@ nav {
 
 .mobile-navList {
   position: fixed;
+  z-index: 2;
   top: 9rem;
   width: 100%;
 
