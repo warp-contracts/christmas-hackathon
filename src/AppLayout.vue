@@ -5,15 +5,21 @@
       <header ref="start">
         <div class="header-banner">
           <div class="header-title">
+            <h2>
+              Spraw sobie prezent na Mikołajki za
+              <span class="header-amount">10.000 PLN!</span>
+            </h2>
             <h1>Mikołajkowy Hackathon</h1>
-            <h2>Spraw sobie prezent na Mikołajki za 10.000 PLN!</h2>
+            <div class="text-wrapper">
+              <p class="header-text">
+                Zacznij przygodę z Web3 poznając technologię smart kontraktów
+                Warp
+              </p>
+            </div>
             <div class="btn-wrapper">
-              <a href="#" class="header-btn">Weź udział</a>
-              <div>
-                <p class="header-text">
-                  Zacznij przygode z Web3 poznajac technologię smart kontraktów
-                  Warp
-                </p>
+              <div class="header-buttons">
+                <a href="#" class="header-btn">Weź udział</a>
+                <a href="#" class="discord-btn">Podyskutuj o pomyśle</a>
               </div>
             </div>
           </div>
@@ -29,7 +35,7 @@
       <section id="date">
         <div class="basic-info">
           <p>Czas zgłoszeń do:</p>
-          <span>23:59 05.12.2022 ⏱️</span>
+          <span>23:59 23.12.2022 ⏱️</span>
         </div>
         <div class="extra-info">
           <p>
@@ -67,6 +73,9 @@
               Poznaj Web3 & Warp SDK poprzez
               <a href="https://warp.cc" target="_blank">Warp Academy</a>
             </p>
+            <p class="text-extra">
+              Potrzebujesz pomocy? Wbij na nasz <a href="http://">Discord!</a>
+            </p>
             <span class="icon">👇</span>
           </div>
 
@@ -75,9 +84,9 @@
             <p class="text">
               Wymyśl kreatywny pomysł zastosowania Warp SDK i zacznij budować.
             </p>
-            <p class="text-extra">
-              Nie masz koncepcji na projekt? Przygotowaliśmy przykładowe pomysły
-              na aplikacje :)
+            <p class="text">
+              Nie masz koncepcji na projekt? Poniej przygotowaliśmy przykładowe
+              pomysły na aplikacje :)
             </p>
             <span class="icon">👇</span>
           </div>
@@ -96,7 +105,7 @@
       </section>
 
       <section ref="examples" id="examples">
-        <div class="accordion">
+        <!-- <div class="accordion">
           <h2>Przykładowe projekty</h2>
           <div class="tabs">
             <div class="tab">
@@ -148,7 +157,7 @@
               </div>
             </div>
           </div>
-        </div>
+        </div> -->
       </section>
 
       <footer ref="contact">
@@ -192,6 +201,7 @@ export default {
   data() {
     return {};
   },
+
   methods: {
     goToSection(value) {
       const top = this.$refs[value].offsetTop;
@@ -230,40 +240,61 @@ main {
       margin-top: 0.3rem;
       text-align: center;
       color: $text-basic;
-    }
+      font-weight: 400;
 
-    .header-btn {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      align-self: flex-end;
-      transition: all 0.3s;
-
-      width: 70%;
-      height: 5rem;
-
-      background-color: $primary;
-      border: none;
-      border-radius: 1.5rem;
-      color: white;
-      font-size: 1.6rem;
-      font-weight: bold;
-      text-decoration: none;
+      .header-amount {
+        font-weight: bold;
+        font-size: 2rem;
+      }
     }
 
     .btn-wrapper {
       display: flex;
       flex-direction: column;
       margin-top: 2rem;
-      div {
+
+      .header-buttons {
+        display: flex;
+        align-items: center;
+        gap: 2rem;
+
+        .header-btn {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          align-self: flex-end;
+          transition: all 0.3s;
+
+          width: 40%;
+          height: 5rem;
+
+          background-color: $primary;
+          border: none;
+          border-radius: 50rem;
+          color: white;
+          font-size: 1.6rem;
+          font-weight: 400;
+          text-decoration: none;
+        }
+
+        .discord-btn {
+          text-align: center;
+          font-size: 1.6rem;
+          text-decoration: none;
+          color: $primary;
+          font-weight: 500;
+        }
+      }
+      .text-wrapper {
         display: flex;
         justify-content: flex-end;
       }
     }
     .header-text {
-      text-align: end;
-      width: 70%;
       align-self: flex-end;
+      font-size: 1.8rem;
+      color: $text-basic;
+      margin-top: 1rem;
     }
     .header-img {
       margin-top: 1rem;
@@ -285,8 +316,8 @@ main {
     justify-content: center;
 
     padding: 0 2rem;
-    background-color: $secondary;
-
+    background-color: $primary;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
     div {
       color: white;
     }
@@ -306,7 +337,7 @@ main {
       text-align: center;
       margin-top: 1rem;
       p {
-        font-size: 1.2rem;
+        font-size: 1.4rem;
         font-style: italic;
       }
     }
@@ -339,10 +370,10 @@ main {
         }
         p {
           margin-left: 0.5rem;
-          font-size: 1.6rem;
+          font-size: 2.2rem;
           color: $text-basic;
           span {
-            font-size: 1.6rem;
+            font-size: 2.2rem;
             font-weight: bold;
             color: $text-basic;
           }
@@ -381,16 +412,17 @@ main {
 
         .text {
           text-align: center;
-          font-size: 1.4rem;
+          font-size: 1.6rem;
 
           a {
-            font-size: 1.4rem;
+            font-size: 1.6rem;
           }
         }
 
-        .text-extra {
-          font-style: italic;
-          font-size: 1.2rem;
+        .text-extra,
+        a {
+          font-size: 1.6rem;
+          text-align: center;
         }
 
         .icon {
@@ -405,13 +437,12 @@ main {
         align-items: center;
         width: 20rem;
         height: 5rem;
-        background-color: $secondary;
+        background-color: $primary;
         color: white;
         text-decoration: none;
-        border-radius: 1.5rem;
+        border-radius: 50rem;
         text-transform: uppercase;
         font-size: 1.4rem;
-        font-weight: bold;
       }
     }
   }
@@ -459,7 +490,6 @@ main {
           justify-content: space-between;
           padding: 1rem;
           background: $secondary;
-          font-weight: bold;
           font-size: 2rem;
           cursor: pointer;
 
@@ -531,7 +561,7 @@ main {
 
     margin-top: 2rem;
     padding: 2rem 2rem;
-    background-color: $secondary;
+    background-color: $primary;
     .email-section,
     .links-section {
       display: flex;
@@ -713,13 +743,6 @@ main {
         width: 80%;
         height: 5rem;
         cursor: pointer;
-
-        background-color: $primary;
-        border: none;
-        border-radius: 1.5rem;
-        color: white;
-        font-size: 1.6rem;
-        font-weight: bold;
       }
 
       .btn-wrapper {
