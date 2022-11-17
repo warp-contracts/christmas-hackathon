@@ -1,8 +1,8 @@
 <template>
   <div>
-    <TheNavigation></TheNavigation>
+    <TheNavigation @go-section="goToSection"></TheNavigation>
     <main>
-      <header>
+      <header ref="start">
         <div class="header-banner">
           <div class="header-title">
             <h1>Mikołajkowy Hackathon</h1>
@@ -40,7 +40,7 @@
         </div>
       </section>
 
-      <section id="prize">
+      <section ref="prize" id="prize">
         <h2>Nagrody</h2>
         <ul>
           <li class="first-place">
@@ -58,7 +58,7 @@
         </ul>
       </section>
 
-      <section id="instruction">
+      <section ref="instruction" id="instruction">
         <h2>Jak wziąć udział?</h2>
         <div class="timeline">
           <div class="step">
@@ -73,7 +73,11 @@
           <div class="step">
             <p class="title">Krok 2</p>
             <p class="text">
-              Wymyśl kreatywny pomysł zastosowania Warp SDK i zacznij budować
+              Wymyśl kreatywny pomysł zastosowania Warp SDK i zacznij budować.
+            </p>
+            <p class="text-extra">
+              Nie masz koncepcji na projekt? Przygotowaliśmy przykładowe pomysły
+              na aplikacje :)
             </p>
             <span class="icon">👇</span>
           </div>
@@ -91,7 +95,7 @@
         </div>
       </section>
 
-      <section id="examples">
+      <section ref="examples" id="examples">
         <div class="accordion">
           <h2>Przykładowe projekty</h2>
           <div class="tabs">
@@ -147,7 +151,33 @@
         </div>
       </section>
 
-      <footer></footer>
+      <footer ref="contact">
+        <div class="snowflakes" aria-hidden="true">
+          <div class="snowflake">❅</div>
+          <div class="snowflake">❆</div>
+          <div class="snowflake">❅</div>
+          <div class="snowflake">❆</div>
+          <div class="snowflake">❅</div>
+          <div class="snowflake">❆</div>
+          <div class="snowflake">❅</div>
+          <div class="snowflake">❆</div>
+          <div class="snowflake">❅</div>
+          <div class="snowflake">❆</div>
+          <div class="snowflake">❅</div>
+          <div class="snowflake">❆</div>
+        </div>
+        <div class="email-section">
+          <p>Kontakt:</p>
+          <p>contest@redstone.finance</p>
+        </div>
+        <div class="links-section">
+          <a href="http://warp.cc" target="_blank">warp.cc</a>
+          <a href="https://github.com/warp-contracts" target="_blank"
+            >github.com/warp-contracts</a
+          >
+        </div>
+        <p class="copyright">© RedStone 2022</p>
+      </footer>
     </main>
   </div>
 </template>
@@ -161,6 +191,16 @@ export default {
   },
   data() {
     return {};
+  },
+  methods: {
+    goToSection(value) {
+      const top = this.$refs[value].offsetTop;
+      window.scrollTo({
+        top: top - 90,
+        left: 0,
+        behavior: 'smooth',
+      });
+    },
   },
 };
 </script>
@@ -348,6 +388,11 @@ main {
           }
         }
 
+        .text-extra {
+          font-style: italic;
+          font-size: 1.2rem;
+        }
+
         .icon {
           font-size: 3rem;
           margin-top: 2rem;
@@ -476,6 +521,168 @@ main {
       }
     }
   }
+
+  footer {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+
+    margin-top: 2rem;
+    padding: 2rem 2rem;
+    background-color: $secondary;
+    .email-section,
+    .links-section {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      color: white;
+
+      p {
+        font-size: 1.6rem;
+      }
+
+      a {
+        color: white;
+        font-size: 1.6rem;
+        text-align: center;
+      }
+    }
+
+    .links-section {
+      margin-top: 1rem;
+    }
+
+    .copyright {
+      margin-top: 3rem;
+      color: white;
+    }
+    .snowflake {
+      color: #fff;
+      font-size: 1em;
+      font-family: Arial, sans-serif;
+      text-shadow: 0 0 5px #000;
+    }
+
+    @-webkit-keyframes snowflakes-fall {
+      0% {
+        top: -10%;
+      }
+      100% {
+        top: 100%;
+      }
+    }
+    @-webkit-keyframes snowflakes-shake {
+      0%,
+      100% {
+        -webkit-transform: translateX(0);
+        transform: translateX(0);
+      }
+      50% {
+        -webkit-transform: translateX(80px);
+        transform: translateX(80px);
+      }
+    }
+    @keyframes snowflakes-fall {
+      0% {
+        top: -10%;
+      }
+      100% {
+        top: 100%;
+      }
+    }
+    @keyframes snowflakes-shake {
+      0%,
+      100% {
+        transform: translateX(0);
+      }
+      50% {
+        transform: translateX(80px);
+      }
+    }
+    .snowflake {
+      position: fixed;
+      top: -10%;
+      z-index: 9999;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
+      cursor: default;
+      -webkit-animation-name: snowflakes-fall, snowflakes-shake;
+      -webkit-animation-duration: 10s, 3s;
+      -webkit-animation-timing-function: linear, ease-in-out;
+      -webkit-animation-iteration-count: infinite, infinite;
+      -webkit-animation-play-state: running, running;
+      animation-name: snowflakes-fall, snowflakes-shake;
+      animation-duration: 10s, 3s;
+      animation-timing-function: linear, ease-in-out;
+      animation-iteration-count: infinite, infinite;
+      animation-play-state: running, running;
+    }
+    .snowflake:nth-of-type(0) {
+      left: 1%;
+      -webkit-animation-delay: 0s, 0s;
+      animation-delay: 0s, 0s;
+    }
+    .snowflake:nth-of-type(1) {
+      left: 10%;
+      -webkit-animation-delay: 1s, 1s;
+      animation-delay: 1s, 1s;
+    }
+    .snowflake:nth-of-type(2) {
+      left: 20%;
+      -webkit-animation-delay: 6s, 0.5s;
+      animation-delay: 6s, 0.5s;
+    }
+    .snowflake:nth-of-type(3) {
+      left: 30%;
+      -webkit-animation-delay: 4s, 2s;
+      animation-delay: 4s, 2s;
+    }
+    .snowflake:nth-of-type(4) {
+      left: 40%;
+      -webkit-animation-delay: 2s, 2s;
+      animation-delay: 2s, 2s;
+    }
+    .snowflake:nth-of-type(5) {
+      left: 50%;
+      -webkit-animation-delay: 8s, 3s;
+      animation-delay: 8s, 3s;
+    }
+    .snowflake:nth-of-type(6) {
+      left: 60%;
+      -webkit-animation-delay: 6s, 2s;
+      animation-delay: 6s, 2s;
+    }
+    .snowflake:nth-of-type(7) {
+      left: 70%;
+      -webkit-animation-delay: 2.5s, 1s;
+      animation-delay: 2.5s, 1s;
+    }
+    .snowflake:nth-of-type(8) {
+      left: 80%;
+      -webkit-animation-delay: 1s, 0s;
+      animation-delay: 1s, 0s;
+    }
+    .snowflake:nth-of-type(9) {
+      left: 90%;
+      -webkit-animation-delay: 3s, 1.5s;
+      animation-delay: 3s, 1.5s;
+    }
+    .snowflake:nth-of-type(10) {
+      left: 25%;
+      -webkit-animation-delay: 2s, 0s;
+      animation-delay: 2s, 0s;
+    }
+    .snowflake:nth-of-type(11) {
+      left: 65%;
+      -webkit-animation-delay: 4s, 2.5s;
+      animation-delay: 4s, 2.5s;
+    }
+  }
 }
 
 @media (min-width: 768px) {
@@ -531,8 +738,6 @@ main {
     #date {
       height: 20rem;
       padding: 0 4rem;
-
-      background-color: $secondary;
     }
 
     #prize {
@@ -542,13 +747,50 @@ main {
         gap: 3rem;
       }
     }
+
+    footer {
+      flex-direction: row;
+
+      .links-section,
+      .email-section {
+        width: 50%;
+      }
+
+      .copyright {
+        font-size: 1.2rem;
+      }
+    }
   }
 }
 
 @media (min-width: 1023px) {
   main {
     header {
-      padding: 0 12rem;
+      padding: 0 8rem;
+    }
+
+    #date {
+      padding: 0 8rem;
+    }
+
+    #examples {
+      padding: 0 8rem;
+    }
+
+    footer {
+      margin-top: 8rem;
+    }
+  }
+}
+
+@media (min-width: 1100px) {
+  main {
+    header {
+      .header-img {
+        img {
+          width: 40rem;
+        }
+      }
     }
   }
 }

@@ -23,10 +23,11 @@
       :class="mobileNav ? 'nav-visible' : 'nav-hidden'"
     >
       <ul>
-        <li><a href="#">Start</a></li>
-        <li><a href="#">Jak wziąć udział?</a></li>
-        <li><a href="#">Przykładowe projekty</a></li>
-        <li><a href="#">Kontakt</a></li>
+        <li><a href="#" @click.prevent="goSection('start')">Start</a></li>
+        <li><a href="#" @click.prevent="goSection('prize')">Nagrody</a></li>
+        <li><a href="#" @click.prevent="goSection('instruction')">Jak wziąć udział?</a></li>
+        <li><a href="#" @click.prevent="goSection('examples')">Przykładowe projekty</a></li>
+        <li><a href="#" @click.prevent="goSection('contact')">Kontakt</a></li>
       </ul>
     </div>
 
@@ -48,6 +49,12 @@ export default {
     return {
       mobileNav: false,
     };
+  },
+  methods: {
+    goSection(val) {
+      this.mobileNav = false;
+      this.$emit('go-section', val);
+    },
   },
 };
 </script>
@@ -90,7 +97,7 @@ nav {
   justify-content: flex-end;
   align-items: center;
 
-  height: 20rem;
+  height: 30rem;
   padding: 0 2rem;
   background-color: white;
 
@@ -140,7 +147,7 @@ nav {
 
 @media (min-width: 1023px) {
   .mobile-nav > nav {
-    padding: 0 12rem;
+    padding: 0 8rem;
   }
 }
 </style>
