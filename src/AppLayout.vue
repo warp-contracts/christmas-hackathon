@@ -6,10 +6,10 @@
         <div class="header-banner">
           <div class="header-title">
             <h2>
-              Spraw sobie prezent na Mikołajki za
+              Spraw sobie prezent pod Choinkę za
               <span class="header-amount">10.000 PLN!</span>
             </h2>
-            <h1>Mikołajkowy Hackathon</h1>
+            <h1>Gwiazdkowy Hackathon</h1>
             <div class="text-wrapper">
               <p class="header-text">
                 Zacznij przygodę z Web3 poznając technologię smart kontraktów
@@ -105,59 +105,59 @@
       </section>
 
       <section ref="examples" id="examples">
-        <!-- <div class="accordion">
-          <h2>Przykładowe projekty</h2>
-          <div class="tabs">
-            <div class="tab">
-              <input type="checkbox" id="chck1" />
-              <label class="tab-label" for="chck1">DeFi</label>
-              <div class="tab-content">
-                <p><span>👉</span> Zdecentralizowana giełda (DEX)</p>
-                <p><span>👉</span> Zdecentralizowany protokół pożyczkowy</p>
-                <p>
-                  <span>👉</span> Zdecentralizowany Protokół monetyzacji danych
-                </p>
-              </div>
+        <h2>Przykładowe projekty</h2>
+        <swiper
+          :modules="modules"
+          :pagination="{
+            clickable: true,
+          }"
+          class="mySwiper"
+        >
+          <swiper-slide>
+            <h3>Social Apps</h3>
+            <div class="tab-content">
+              <ul>
+                <li>
+                  Social Media - np. Instagram oparty na technologii blockchain
+                </li>
+                <li>
+                  Social Networks - Narzędzia do budowy wirtualnych społeczności
+                </li>
+                <li>
+                  Protokół Zarządzający potwierdzeniem tożsamości w oparciu o
+                  technologię blockchain
+                </li>
+              </ul>
+            </div> </swiper-slide
+          ><swiper-slide>
+            <h3>DeFi</h3>
+            <div class="tab-content">
+              <ul>
+                <li>Zdecentralizowana giełda (DEX)</li>
+                <li>Zdecentralizowany protokół pożyczkowy</li>
+                <li>Zdecentralizowany Protokół monetyzacji danych</li>
+              </ul>
+            </div> </swiper-slide
+          ><swiper-slide>
+            <h3>Gaming</h3>
+            <div class="tab-content">
+              <ul>
+                <li>
+                  Trading card games: dodaj budowanie decku, wymianę kart oraz
+                  zapis wyników pojedynków na blockchainie
+                </li>
+                <li>
+                  RPGs: tokenizacja oraz możliwość wymiany/ sprzedaży
+                  przedmiotów w grze
+                </li>
+                <li>
+                  MMO: Zdefiniuj mechanizm interakcji bezpośrednio w kontraktach
+                  Warp
+                </li>
+              </ul>
             </div>
-            <div class="tab">
-              <input type="checkbox" id="chck2" />
-              <label class="tab-label" for="chck2">Social Apps</label>
-              <div class="tab-content">
-                <p>
-                  <span>👉</span> Social Media - np. Instagram oparty na
-                  technologii blockchain
-                </p>
-                <p>
-                  <span>👉</span> Social Networks - Narzędzia do budowy
-                  wirtualnych społeczności
-                </p>
-                <p>
-                  <span>👉</span> Protokół Zarządzający potwierdzeniem
-                  tożsamości w oparciu o technologię blockchain
-                </p>
-              </div>
-            </div>
-
-            <div class="tab">
-              <input type="checkbox" id="chck3" />
-              <label class="tab-label" for="chck3">Gaming</label>
-              <div class="tab-content">
-                <p>
-                  <span>👉</span> Trading card games: dodaj budowanie decku,
-                  wymianę kart oraz zapis wyników pojedynków na blockchainie
-                </p>
-                <p>
-                  <span>👉</span> RPGs: tokenizacja oraz możliwość wymiany/
-                  sprzedaży przedmiotów w grze
-                </p>
-                <p>
-                  <span>👉</span> MMO: Zdefiniuj mechanizm interakcji
-                  bezpośrednio w kontraktach Warp
-                </p>
-              </div>
-            </div>
-          </div>
-        </div> -->
+          </swiper-slide>
+        </swiper>
       </section>
 
       <footer ref="contact">
@@ -193,13 +193,21 @@
 
 <script>
 import TheNavigation from './components/TheNavigation.vue';
+import { Swiper, SwiperSlide } from 'swiper/vue';
+import 'swiper/css';
+import 'swiper/css/pagination';
+import { Pagination } from 'swiper';
 
 export default {
   components: {
     TheNavigation,
+    Swiper,
+    SwiperSlide,
   },
   data() {
-    return {};
+    return {
+      modules: [Pagination],
+    };
   },
 
   methods: {
@@ -450,104 +458,60 @@ main {
   #examples {
     display: flex;
     justify-content: center;
+    flex-direction: column;
     align-items: center;
+    height: 50rem;
 
     padding: 4rem 2rem;
     margin-top: 4rem;
-    .accordion {
-      h2 {
-        @include section-header;
+
+    h2 {
+      @include section-header;
+      text-align: center;
+    }
+    .swiper {
+      width: 80%;
+      height: 100%;
+    }
+
+    .swiper-slide {
+      text-align: center;
+      font-size: 1.8rem;
+      background: #fff;
+      padding: 0 2.5rem;
+
+      display: flex;
+      flex-direction: column;
+      -webkit-box-pack: center;
+      -ms-flex-pack: center;
+      -webkit-justify-content: center;
+      justify-content: center;
+      -webkit-box-align: center;
+      -ms-flex-align: center;
+      align-items: center;
+
+      h3 {
+        margin: 0 auto;
         text-align: center;
-      }
-      input {
-        position: absolute;
-        opacity: 0;
-        z-index: -1;
-      }
-      // Layout
-      .row {
-        display: flex;
-        .col {
-          flex: 1;
-          &:last-child {
-            margin-left: 1em;
-          }
-        }
+        font-size: 1.8rem;
+        color: $primary;
       }
 
-      .tabs {
-        margin-top: 4rem;
-        border-radius: 0.8rem;
-        overflow: hidden;
-        box-shadow: 0 0.4rem 0.4rem -0.2rem rgba(0, 0, 0, 0.5);
-      }
-      .tab {
-        width: 100%;
-        color: white;
-        overflow: hidden;
-        &-label {
-          display: flex;
-          justify-content: space-between;
-          padding: 1rem;
-          background: $secondary;
-          font-size: 2rem;
-          cursor: pointer;
-
-          &:hover {
-            background: $secondary;
-          }
-          &::after {
-            content: '\276F';
-            width: 1rem;
-            height: 1rem;
-            text-align: center;
-            transition: all 0.35s;
-          }
+      .tab-content {
+        ul {
+          list-style: none;
         }
-        &-content {
-          max-height: 0;
-          padding: 0 1em;
-          background: white;
-          transition: all 0.35s;
-
-          p {
-            font-size: 1.4rem;
-            color: $text-basic;
-            padding: 1rem 0;
-            display: flex;
-            align-items: center;
-
-            span {
-              font-size: 2rem;
-              margin-right: 1rem;
-            }
-          }
+        ul li {
+          text-align: left;
+          font-size: 1.4rem;
+          padding: 0.7rem 0;
+          padding-left: 1rem;
+          color: $text-basic;
         }
-        &-close {
-          display: flex;
-          justify-content: flex-end;
-          padding: 1em;
-          font-size: 0.75em;
-          background: $secondary;
-          cursor: pointer;
-          &:hover {
-            background: $secondary;
-          }
-        }
-      }
-
-      // :checked
-      input:checked {
-        + .tab-label {
-          background: $secondary;
-          &::after {
-            transform: rotate(90deg);
-          }
-        }
-        ~ .tab-content {
-          max-height: 100vh;
-          padding: 1rem;
-        }
+        ul li::marker {
+  content: "👉";
+  font-size: 2rem;
+}
       }
     }
   }
@@ -798,6 +762,11 @@ main {
 
     #examples {
       padding: 0 8rem;
+      height: 40rem;
+
+      .swiper {
+        width: 70%;
+      }
     }
 
     footer {
