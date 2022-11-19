@@ -71,7 +71,7 @@
             <p class="title">Krok 1</p>
             <p class="text">
               Poznaj Web3 & Warp SDK poprzez
-              <a href="https://warp.cc" target="_blank">Warp Academy</a>
+              <a href="https://academy.warp.cc" target="_blank">Warp Academy</a>
             </p>
             <p class="text-extra">
               Potrzebujesz pomocy? Wbij na nasz
