@@ -167,8 +167,8 @@
           <a href="https://github.com/warp-contracts" target="_blank"
             ><img src="./assets/github.svg" alt="github icon link" srcset=""
           /></a>
-          <a href="https://medium.com/@RedStone_Finance" target="_blank"
-            ><img src="./assets/medium.svg" alt="medium icon link" srcset=""
+          <a href="https://twitter.com/warp_contracts" target="_blank"
+            ><img src="./assets/twitter.svg" alt="medium icon link" srcset=""
           /></a>
           <a href="https://discord.com/invite/PVxBZKFr46" target="_blank"
             ><img src="./assets/discord.svg" alt="discord icon link" srcset=""
