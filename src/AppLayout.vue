@@ -630,7 +630,8 @@ main {
     footer {
       flex-direction: row-reverse;
       justify-content: space-between;
-      padding: 0 2rem;
+      padding: 1rem 2rem;
+
       gap: 1rem;
 
       .links-section,
@@ -674,7 +675,8 @@ main {
 
     footer {
       margin-top: 8rem;
-      padding: 0 8rem;
+      padding: 1rem 8rem;
+
     }
   }
 }
