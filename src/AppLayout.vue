@@ -18,7 +18,7 @@
             </div>
             <div class="btn-wrapper">
               <div class="header-buttons">
-                <a href="#" class="header-btn">Weź udział</a>
+                <a href="#" class="header-btn" @click="goToSection('instruction')">Weź udział</a>
                 <a href="#" class="discord-btn">Podyskutuj o pomyśle</a>
               </div>
             </div>
@@ -74,7 +74,8 @@
               <a href="https://warp.cc" target="_blank">Warp Academy</a>
             </p>
             <p class="text-extra">
-              Potrzebujesz pomocy? Wbij na nasz <a href="http://">Discord!</a>
+              Potrzebujesz pomocy? Wbij na nasz
+              <a href="https://discord.com/invite/PVxBZKFr46">Discord!</a>
             </p>
             <span class="icon">👇</span>
           </div>
@@ -161,33 +162,38 @@
       </section>
 
       <footer ref="contact">
-        <div class="snowflakes" aria-hidden="true">
-          <div class="snowflake">❅</div>
-          <div class="snowflake">❆</div>
-          <div class="snowflake">❅</div>
-          <div class="snowflake">❆</div>
-          <div class="snowflake">❅</div>
-          <div class="snowflake">❆</div>
-          <div class="snowflake">❅</div>
-          <div class="snowflake">❆</div>
-          <div class="snowflake">❅</div>
-          <div class="snowflake">❆</div>
-          <div class="snowflake">❅</div>
-          <div class="snowflake">❆</div>
-        </div>
-        <div class="email-section">
-          <p>Kontakt:</p>
-          <p>contest@redstone.finance</p>
-        </div>
         <div class="links-section">
           <a href="http://warp.cc" target="_blank">warp.cc</a>
           <a href="https://github.com/warp-contracts" target="_blank"
-            >github.com/warp-contracts</a
-          >
+            ><img src="./assets/github.svg" alt="github icon link" srcset=""
+          /></a>
+          <a href="https://medium.com/@RedStone_Finance" target="_blank"
+            ><img src="./assets/medium.svg" alt="medium icon link" srcset=""
+          /></a>
+          <a href="https://discord.com/invite/PVxBZKFr46" target="_blank"
+            ><img src="./assets/discord.svg" alt="discord icon link" srcset=""
+          /></a>
         </div>
-        <p class="copyright">© RedStone 2022</p>
+        <div class="email-section">
+          <p>contest@redstone.finance</p>
+          <p class="copyright">© RedStone 2022</p>
+        </div>
       </footer>
     </main>
+    <div class="snowflakes" aria-hidden="true">
+      <div class="snowflake">❅</div>
+      <div class="snowflake">❆</div>
+      <div class="snowflake">❅</div>
+      <div class="snowflake">❆</div>
+      <div class="snowflake">❅</div>
+      <div class="snowflake">❆</div>
+      <div class="snowflake">❅</div>
+      <div class="snowflake">❆</div>
+      <div class="snowflake">❅</div>
+      <div class="snowflake">❆</div>
+      <div class="snowflake">❅</div>
+      <div class="snowflake">❆</div>
+    </div>
   </div>
 </template>
 
@@ -264,7 +270,7 @@ main {
       .header-buttons {
         display: flex;
         align-items: center;
-        gap: 2rem;
+        gap: 1.5rem;
 
         .header-btn {
           display: flex;
@@ -273,7 +279,7 @@ main {
           align-self: flex-end;
           transition: all 0.3s;
 
-          width: 40%;
+          width: 47%;
           height: 5rem;
 
           background-color: $primary;
@@ -291,6 +297,7 @@ main {
           text-decoration: none;
           color: $primary;
           font-weight: 500;
+          width: 47%;
         }
       }
       .text-wrapper {
@@ -460,7 +467,7 @@ main {
     justify-content: center;
     flex-direction: column;
     align-items: center;
-    height: 50rem;
+    height: 60rem;
 
     padding: 4rem 2rem;
     margin-top: 4rem;
@@ -509,9 +516,9 @@ main {
           color: $text-basic;
         }
         ul li::marker {
-  content: "👉";
-  font-size: 2rem;
-}
+          content: '👉';
+          font-size: 2rem;
+        }
       }
     }
   }
@@ -524,12 +531,12 @@ main {
     justify-content: center;
 
     margin-top: 2rem;
-    padding: 2rem 2rem;
+    padding: 0 2rem;
     background-color: $primary;
     .email-section,
     .links-section {
+      gap: 1rem;
       display: flex;
-      flex-direction: column;
       justify-content: center;
       align-items: center;
       color: white;
@@ -549,132 +556,13 @@ main {
       margin-top: 1rem;
     }
 
-    .copyright {
-      margin-top: 3rem;
-      color: white;
-    }
-    .snowflake {
-      color: #fff;
-      font-size: 1em;
-      font-family: Arial, sans-serif;
-      text-shadow: 0 0 5px #000;
+    .email-section {
+      flex-direction: column;
     }
 
-    @-webkit-keyframes snowflakes-fall {
-      0% {
-        top: -10%;
-      }
-      100% {
-        top: 100%;
-      }
-    }
-    @-webkit-keyframes snowflakes-shake {
-      0%,
-      100% {
-        -webkit-transform: translateX(0);
-        transform: translateX(0);
-      }
-      50% {
-        -webkit-transform: translateX(80px);
-        transform: translateX(80px);
-      }
-    }
-    @keyframes snowflakes-fall {
-      0% {
-        top: -10%;
-      }
-      100% {
-        top: 100%;
-      }
-    }
-    @keyframes snowflakes-shake {
-      0%,
-      100% {
-        transform: translateX(0);
-      }
-      50% {
-        transform: translateX(80px);
-      }
-    }
-    .snowflake {
-      position: fixed;
-      top: -10%;
-      z-index: 9999;
-      -webkit-user-select: none;
-      -moz-user-select: none;
-      -ms-user-select: none;
-      user-select: none;
-      cursor: default;
-      -webkit-animation-name: snowflakes-fall, snowflakes-shake;
-      -webkit-animation-duration: 10s, 3s;
-      -webkit-animation-timing-function: linear, ease-in-out;
-      -webkit-animation-iteration-count: infinite, infinite;
-      -webkit-animation-play-state: running, running;
-      animation-name: snowflakes-fall, snowflakes-shake;
-      animation-duration: 10s, 3s;
-      animation-timing-function: linear, ease-in-out;
-      animation-iteration-count: infinite, infinite;
-      animation-play-state: running, running;
-    }
-    .snowflake:nth-of-type(0) {
-      left: 1%;
-      -webkit-animation-delay: 0s, 0s;
-      animation-delay: 0s, 0s;
-    }
-    .snowflake:nth-of-type(1) {
-      left: 10%;
-      -webkit-animation-delay: 1s, 1s;
-      animation-delay: 1s, 1s;
-    }
-    .snowflake:nth-of-type(2) {
-      left: 20%;
-      -webkit-animation-delay: 6s, 0.5s;
-      animation-delay: 6s, 0.5s;
-    }
-    .snowflake:nth-of-type(3) {
-      left: 30%;
-      -webkit-animation-delay: 4s, 2s;
-      animation-delay: 4s, 2s;
-    }
-    .snowflake:nth-of-type(4) {
-      left: 40%;
-      -webkit-animation-delay: 2s, 2s;
-      animation-delay: 2s, 2s;
-    }
-    .snowflake:nth-of-type(5) {
-      left: 50%;
-      -webkit-animation-delay: 8s, 3s;
-      animation-delay: 8s, 3s;
-    }
-    .snowflake:nth-of-type(6) {
-      left: 60%;
-      -webkit-animation-delay: 6s, 2s;
-      animation-delay: 6s, 2s;
-    }
-    .snowflake:nth-of-type(7) {
-      left: 70%;
-      -webkit-animation-delay: 2.5s, 1s;
-      animation-delay: 2.5s, 1s;
-    }
-    .snowflake:nth-of-type(8) {
-      left: 80%;
-      -webkit-animation-delay: 1s, 0s;
-      animation-delay: 1s, 0s;
-    }
-    .snowflake:nth-of-type(9) {
-      left: 90%;
-      -webkit-animation-delay: 3s, 1.5s;
-      animation-delay: 3s, 1.5s;
-    }
-    .snowflake:nth-of-type(10) {
-      left: 25%;
-      -webkit-animation-delay: 2s, 0s;
-      animation-delay: 2s, 0s;
-    }
-    .snowflake:nth-of-type(11) {
-      left: 65%;
-      -webkit-animation-delay: 4s, 2.5s;
-      animation-delay: 4s, 2.5s;
+    .copyright {
+      margin: 1rem 0;
+      color: white;
     }
   }
 }
@@ -735,16 +623,31 @@ main {
       }
     }
 
+    #examples {
+      height: 50rem;
+    }
+
     footer {
-      flex-direction: row;
+      flex-direction: row-reverse;
+      justify-content: space-between;
+      padding: 0 2rem;
+      gap: 1rem;
 
       .links-section,
       .email-section {
-        width: 50%;
+        flex-direction: row;
+      }
+
+      .email-section {
+        flex-direction: row-reverse;
+      }
+      .links-section {
+        margin-top: 0;
       }
 
       .copyright {
         font-size: 1.2rem;
+        margin: 0;
       }
     }
   }
@@ -771,6 +674,7 @@ main {
 
     footer {
       margin-top: 8rem;
+      padding: 0 8rem;
     }
   }
 }
@@ -785,5 +689,129 @@ main {
       }
     }
   }
+}
+
+.snowflake {
+  color: #fff;
+  font-size: 1em;
+  font-family: Arial, sans-serif;
+  text-shadow: 0 0 5px #000;
+}
+
+@-webkit-keyframes snowflakes-fall {
+  0% {
+    top: -10%;
+  }
+  100% {
+    top: 100%;
+  }
+}
+@-webkit-keyframes snowflakes-shake {
+  0%,
+  100% {
+    -webkit-transform: translateX(0);
+    transform: translateX(0);
+  }
+  50% {
+    -webkit-transform: translateX(80px);
+    transform: translateX(80px);
+  }
+}
+@keyframes snowflakes-fall {
+  0% {
+    top: -10%;
+  }
+  100% {
+    top: 100%;
+  }
+}
+@keyframes snowflakes-shake {
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(80px);
+  }
+}
+.snowflake {
+  position: fixed;
+  top: -10%;
+  z-index: 9999;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  cursor: default;
+  -webkit-animation-name: snowflakes-fall, snowflakes-shake;
+  -webkit-animation-duration: 10s, 3s;
+  -webkit-animation-timing-function: linear, ease-in-out;
+  -webkit-animation-iteration-count: infinite, infinite;
+  -webkit-animation-play-state: running, running;
+  animation-name: snowflakes-fall, snowflakes-shake;
+  animation-duration: 10s, 3s;
+  animation-timing-function: linear, ease-in-out;
+  animation-iteration-count: infinite, infinite;
+  animation-play-state: running, running;
+}
+.snowflake:nth-of-type(0) {
+  left: 1%;
+  -webkit-animation-delay: 0s, 0s;
+  animation-delay: 0s, 0s;
+}
+.snowflake:nth-of-type(1) {
+  left: 10%;
+  -webkit-animation-delay: 1s, 1s;
+  animation-delay: 1s, 1s;
+}
+.snowflake:nth-of-type(2) {
+  left: 20%;
+  -webkit-animation-delay: 6s, 0.5s;
+  animation-delay: 6s, 0.5s;
+}
+.snowflake:nth-of-type(3) {
+  left: 30%;
+  -webkit-animation-delay: 4s, 2s;
+  animation-delay: 4s, 2s;
+}
+.snowflake:nth-of-type(4) {
+  left: 40%;
+  -webkit-animation-delay: 2s, 2s;
+  animation-delay: 2s, 2s;
+}
+.snowflake:nth-of-type(5) {
+  left: 50%;
+  -webkit-animation-delay: 8s, 3s;
+  animation-delay: 8s, 3s;
+}
+.snowflake:nth-of-type(6) {
+  left: 60%;
+  -webkit-animation-delay: 6s, 2s;
+  animation-delay: 6s, 2s;
+}
+.snowflake:nth-of-type(7) {
+  left: 70%;
+  -webkit-animation-delay: 2.5s, 1s;
+  animation-delay: 2.5s, 1s;
+}
+.snowflake:nth-of-type(8) {
+  left: 80%;
+  -webkit-animation-delay: 1s, 0s;
+  animation-delay: 1s, 0s;
+}
+.snowflake:nth-of-type(9) {
+  left: 90%;
+  -webkit-animation-delay: 3s, 1.5s;
+  animation-delay: 3s, 1.5s;
+}
+.snowflake:nth-of-type(10) {
+  left: 25%;
+  -webkit-animation-delay: 2s, 0s;
+  animation-delay: 2s, 0s;
+}
+.snowflake:nth-of-type(11) {
+  left: 65%;
+  -webkit-animation-delay: 4s, 2.5s;
+  animation-delay: 4s, 2.5s;
 }
 </style>
