@@ -18,8 +18,13 @@
             </div>
             <div class="btn-wrapper">
               <div class="header-buttons">
-                <a href="#" class="header-btn" @click="goToSection('instruction')">Weź udział</a>
-                <a href="#" class="discord-btn">Podyskutuj o pomyśle</a>
+                <a
+                  href="#"
+                  class="header-btn"
+                  @click="goToSection('instruction')"
+                  >Weź udział</a
+                >
+                <a href="https://discord.com/invite/PVxBZKFr46" target="_blank" class="discord-btn">Podyskutuj o pomyśle</a>
               </div>
             </div>
           </div>
@@ -86,7 +91,7 @@
               Wymyśl kreatywny pomysł zastosowania Warp SDK i zacznij budować.
             </p>
             <p class="text">
-              Nie masz koncepcji na projekt? Poniej przygotowaliśmy przykładowe
+              Nie masz koncepcji na projekt? Poniżej przygotowaliśmy przykładowe 
               pomysły na aplikacje :)
             </p>
             <span class="icon">👇</span>
@@ -119,14 +124,23 @@
             <div class="tab-content">
               <ul>
                 <li>
-                  Social Media - np. Instagram oparty na technologii blockchain
+                  Social Media - np. zbuduj Instagram oparty na technologii
+                  blockchain, który nie zbiera danych użytkowników oraz
+                  przechowuje pliki w zdecentralizowany sposób.
                 </li>
                 <li>
-                  Social Networks - Narzędzia do budowy wirtualnych społeczności
+                  Social Networks - Narzędzia do budowy wirtualnych
+                  społeczności.
                 </li>
                 <li>
-                  Protokół Zarządzający potwierdzeniem tożsamości w oparciu o
-                  technologię blockchain
+                  Protokół Potwierdzania Tożsamości - Przechowuj zaszyfrowane,
+                  wrażliwe dane użytkowników w zdecentralizowany sposób
+                  korzystając z technologii blockchain.
+                </li>
+                <li>
+                  Protokół "Credentialed Freelancer" - Platforma do
+                  uwierzytelniania jakości współpracy dla organizacji i
+                  freelancerów.
                 </li>
               </ul>
             </div> </swiper-slide
@@ -134,9 +148,32 @@
             <h3>DeFi</h3>
             <div class="tab-content">
               <ul>
-                <li>Zdecentralizowana giełda (DEX)</li>
-                <li>Zdecentralizowany protokół pożyczkowy</li>
-                <li>Zdecentralizowany Protokół monetyzacji danych</li>
+                <li>
+                  Zdecentralizowana Giełda(Dex) - Umożliwiaj wymianę oraz
+                  dodanie pary płynności dla dowolnych tokenów.
+                </li>
+                <li>
+                  Zdecentralizowany Protokół Pożyczkowy - Udzielaj pożyczek oraz
+                  bierz zabezpieczone kredyty poprzez kilka klików.
+                </li>
+                <li>
+                  Zdecentralizowany Rynek Danych - Otwarta platforma
+                  zaprojektowana, umożliwia każdemu legalny zakupu danych z
+                  potwierdzeniem własności na blockchain.
+                </li>
+                <li>
+                  Protokół Ubezpieczeniowy - Umożliwiaj ubezpieczenia wraz z
+                  technologią blockchain.
+                </li>
+                <li>
+                  Portfel - Stwórz portfel zoptymalizowany w danej funkcji.
+                  Waluty, tokeny NFT, wrażliwe dane, a może coś zupełnie innego?
+                </li>
+                <li>
+                  Tokenizacja Danych On-chain - Stwórz Platformę, która np.
+                  pozwala przenieść dane dotyczące transakcji kartą kredytową na
+                  blockchain i oddaje pełną własność swoich danych użytkownikom.
+                </li>
               </ul>
             </div> </swiper-slide
           ><swiper-slide>
@@ -144,16 +181,16 @@
             <div class="tab-content">
               <ul>
                 <li>
-                  Trading card games: dodaj budowanie decku, wymianę kart oraz
-                  zapis wyników pojedynków na blockchainie
+                  Trading card games - Dodaj budowanie decku, wymianę kart oraz
+                  zapis wyników pojedynków na blockchainie.
                 </li>
                 <li>
-                  RPGs: tokenizacja oraz możliwość wymiany/ sprzedaży
-                  przedmiotów w grze
+                  RPGs - Tokenizacja oraz możliwość wymiany/ sprzedaży
+                  przedmiotów w grze.
                 </li>
                 <li>
-                  MMO: Zdefiniuj mechanizm interakcji bezpośrednio w kontraktach
-                  Warp
+                  MMO - Zdefiniuj mechanizm interakcji bezpośrednio w
+                  kontraktach Warp.
                 </li>
               </ul>
             </div>
@@ -467,7 +504,7 @@ main {
     justify-content: center;
     flex-direction: column;
     align-items: center;
-    height: 60rem;
+    height: 100rem;
 
     padding: 4rem 2rem;
     margin-top: 4rem;
@@ -666,7 +703,7 @@ main {
 
     #examples {
       padding: 0 8rem;
-      height: 40rem;
+      height: 45rem;
 
       .swiper {
         width: 70%;
@@ -676,7 +713,6 @@ main {
     footer {
       margin-top: 8rem;
       padding: 1rem 8rem;
-
     }
   }
 }
@@ -689,6 +725,15 @@ main {
           width: 40rem;
         }
       }
+    }
+  }
+}
+
+@media (min-width: 1920px) {
+  main {
+    header {
+      padding-left: 12rem;
+      padding-right: 12rem;
     }
   }
 }

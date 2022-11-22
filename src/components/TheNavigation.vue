@@ -251,4 +251,12 @@ nav {
     }
   }
 }
+
+@media (min-width: 1920px) {
+
+  .desktop-nav nav {
+    padding-left: 12rem;
+    padding-right: 12rem;
+  }
+}
 </style>
