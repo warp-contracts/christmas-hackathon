@@ -24,7 +24,12 @@
                   @click="goToSection('instruction')"
                   >Weź udział</a
                 >
-                <a href="https://discord.com/invite/PVxBZKFr46" target="_blank" class="discord-btn">Podyskutuj o pomyśle</a>
+                <a
+                  href="https://discord.com/invite/PVxBZKFr46"
+                  target="_blank"
+                  class="discord-btn"
+                  >Podyskutuj o pomyśle</a
+                >
               </div>
             </div>
           </div>
@@ -91,7 +96,7 @@
               Wymyśl kreatywny pomysł zastosowania Warp SDK i zacznij budować.
             </p>
             <p class="text">
-              Nie masz koncepcji na projekt? Poniżej przygotowaliśmy przykładowe 
+              Nie masz koncepcji na projekt? Poniżej przygotowaliśmy przykładowe
               pomysły na aplikacje :)
             </p>
             <span class="icon">👇</span>
@@ -105,6 +110,13 @@
               target="_blank"
               class="register-btn"
               >zarejestruj</a
+            >
+
+            <a
+              href="https://docs.google.com/document/d/18CPW21RsS7NRaDOq9D7rEEInic6jPSTd/edit"
+              target="_blank"
+              class="terms-btn"
+              >Regulamin konkursu</a
             >
           </div>
         </div>
@@ -495,6 +507,10 @@ main {
         border-radius: 50rem;
         text-transform: uppercase;
         font-size: 1.4rem;
+      }
+
+      .terms-btn {
+        margin-top: 2rem;
       }
     }
   }
